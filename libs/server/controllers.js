@@ -4,6 +4,7 @@
 module.exports = function (expressApp) {
     const {warn} = require('x-utils-es/umd')
     const DB = require('../db/api')()
+    const moment = require('moment')
     return class ServerController {
         constructor(opts={},debug) {
             this.debug = debug
@@ -50,33 +51,36 @@ module.exports = function (expressApp) {
                     error = err
                 }
 
-                authorsList = authors.reduce((n, el) => {
-                    let post = postsList.filter(nn => nn.author_id === el.id)[0]
-                    if (post) {
+
+                moment("20111031", "YYYYMMDD").fromNow();
+                postsList = postsList.reduce((n, el) => {
+                    let author = authors.filter(nn => nn.id === el.author_id)[0]
+                    if (author) {
                         n.push({
                             ...el,
-                            title: post.title,
-                            body: post.body,
-                            image_url: post.image_url,
-                            created_at: post.created_at
+                            niceDate:moment(el.created_at, "YYYYMMDD").fromNow(),
+                            name: author.name,
+                            role: author.role,
+                            place: author.place,
+                            avatar_url: author.avatar_url
                         })
                     } else {
                         n.push({
                             ...n,
-                            no_posts: true
+                            no_author: true
                         })
                     }
                     return n
                 },[])
                 
-                if(!authorsList.length){
-                    error = 'no authors found'
+                if(!postsList.length){
+                    error = 'no posts found'
                 }
                 res.render("posts/index", { 
                     pageTitle:'MAQUE Forms',
                     postName:'List of Authors',
                     error,
-                    authorsList
+                    postsList
                  });
                
             })()

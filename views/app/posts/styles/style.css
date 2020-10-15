@@ -1,3 +1,83 @@
 body{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
 
+h1,h2,h3,h4,h5{
+    font-weight: 400;
+}    
+
+.strong{
+    font-weight: 400;
+}
+.italic{
+    font-style: italic;
+    font-weight: 400;
+}
+
+.center{
+    text-align: center;
+}
+.bk-gray{
+    background-color: #eee;
+}
+
+.box-shadow{
+    -webkit-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.28);
+    -moz-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.28);
+    box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.28);
+}
+.rounded-img{
+    border-radius: 100px;
+}
+
+.posts-list .thumb{
+    max-width: 250px;
+    height: auto;
+}
+
+.posts-list .card *{
+    border: none;
+}
+.posts-list .card{
+    border: none;
+    background-color: transparent;
+}
+.posts-list .list-group{
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.posts-list .list-group .list-group-item{
+    background-color: transparent;
+}
+
+.posts-list .list-group li i{
+    font-size: smaller;
+}
+
+.posts-list .author img{
+        max-width: 100px!important;
+        height: auto;
+        margin: 0 auto;
+}
+.pagination a{
+    font-weight: 400;
+}
+.pagination *{
+    border: none;
+}
+.pagination .active{
+    border-radius: 100%;
+}
+.pagination  li.page-item{
+    margin: 5px;
+}
+
+.pagination .page-link:hover {
+    z-index: 2;
+    color: inherit;
+    text-decoration: none;
+    background-color: inherit;
+    border-color: inherit;
 }

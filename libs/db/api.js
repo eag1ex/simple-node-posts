@@ -7,6 +7,11 @@ module.exports = () => {
     return class DB {
         constructor(opts = {}) {
             
+            /** 
+             * NOTE images from `http://lorempixel.com`  no longer work
+             * - Replaced {avatar_url} and {image_url} with alternative `https://placeimg.com/`
+            */
+
             this.dataPath = {
                 authors: opts.authors || `./authors.db.json`,
                 posts: opts.posts || `./posts.db.json`
@@ -29,8 +34,7 @@ module.exports = () => {
             } catch (err) {
                 return Promise.reject('dataPath for DB.posts.db not found')
             }
-        }
-        
+        }        
 
     }
 }
