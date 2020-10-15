@@ -10,3 +10,7 @@ exports.listRoutes = (stack) => {
         return n
     }, [])
 }
+
+exports.dataAsync = (data) => {
+    return new Promise((resolve) => resolve(data))
+}

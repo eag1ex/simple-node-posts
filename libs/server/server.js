@@ -27,20 +27,23 @@ module.exports = (DEBUG = true) => {
     app.engine('html', ejs.__express);
     app.set('view engine', 'html');
     app.set('views', path.join(config.publicPath, '/app'))
-    //app.use('/src/libs/img/',express.static(path.join(__dirname, 'views/app/src/libs/img')))
+    app.use('/',express.static(path.join(config.basePath, 'views/app/posts')))
 
-
+    //    //app.use('/src/libs/img/',express.static(path.join(__dirname, 'views/app/src/libs/img')))
     //////////////////////
     // Initialize auth controllers
     new ServerAuth(DEBUG).AppUseAuth()
 
     // Initialize app controllers
-    const controllers = new ServerCtrs(DEBUG)
+    const controllers = new ServerCtrs({
+        bootstrapPath:config.bootstrapPath
+    },DEBUG)
 
     /////////////////////
     // set server routes
     router.get('/posts', controllers.posts.bind(controllers));
-
+    router.get('/data', controllers.data.bind(controllers));
+    //router.get('/:users', controllers.users.bind(controllers));
     // catch all other calls
     router.all("*", function (req, res) {
         return res.status(200).json({ success: true, message: 'works fine', url: req.url, available_routes: listRoutes(router.stack), status: 200 });

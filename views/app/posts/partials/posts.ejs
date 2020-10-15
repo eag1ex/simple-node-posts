@@ -1,0 +1,22 @@
+
+<div class="container">
+    <% if(error){ %>
+        <div class="row">
+            <div class="col-10">
+                    <div class="alert alert-danger" role="alert">
+                           Ups... No posts available!
+                    </div>
+            </div>
+        </div>
+    <% } %> 
+
+    <% for(var i=0; i < authorsList.length; i++) { %>
+    <div class="row">
+        <div class="col-8">
+            <%= authorsList[i].id %>
+            <%= authorsList[i].title %>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <% } %>
+</div>
