@@ -33,9 +33,9 @@
 /$ npm run server
 
 ./libs
-> /server.js
-> controllers.js
-> /views/app/..
+    > /server.js
+        > controllers.js
+            > /views/app/..
 ```
   
 
