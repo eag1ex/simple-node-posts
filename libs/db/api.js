@@ -1,9 +1,9 @@
-`use strict`
-/** 
- * @DB database mock
-*/
 module.exports = () => {
     const { dataAsync } = require('../utils')
+    
+    /** 
+     * @DB database mock
+    */
     return class DB {
         constructor(opts = {}) {
             
@@ -13,8 +13,8 @@ module.exports = () => {
             */
 
             this.dataPath = {
-                authors: opts.authors || `./authors.db.json`,
-                posts: opts.posts || `./posts.db.json`
+                authors: opts.authors || `./json/authors.db.json`,
+                posts: opts.posts || `./json/posts.db.json`
             }
         }
 

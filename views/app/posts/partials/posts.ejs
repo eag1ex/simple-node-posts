@@ -1,50 +1,60 @@
 <div class="container posts-list mb-5">
-    <% if(error){ %>
+<% if(error){ %>
     <div class="row">
-        <div class="col-10">
-            <div class="alert text-danger" role="alert">
+        <div class="col-10 pl-0">
+            <div class="alert text-danger pl-0">
                 Ups... No posts available!
             </div>
         </div>
     </div>
-    <% } %> 
+    <% } else {%>
 
     <% for(var i=0; i < postsList.length; i++) { %>
-     <% if(i%2){ %>
-        <div class="row border bk-gray my-2 rounded box-shadow p-1">
-     <% }else{ %>       
-    <div class="row border rounded my-3 box-shadow p-1">
-     <% } %>    
-        <div class="col-9 pl-0">
-            <div class="d-flex justify-content-start align-items-center">
-                <img src="<%= postsList[i].image_url %>" alt="<%= postsList[i].title %>" class="thumb m-2">
-                <div class="ml-3 my-2 align-self-start">
-                    <h5 class="my-1"><%= postsList[i].title %></h5>
-                    <p class="mb-2"><%= postsList[i].body %></p>
-                    <div class="small text-muted mt-1 italic"><i class="far fa-clock mr-1"></i><%= postsList[i].niceDate %></div>
+    <% if(i%2){ %>
+    <div class="row border bk-gray my-2 rounded box-shadow p-1">
+        <% }else{ %>
+        <div class="row border rounded my-3 box-shadow p-1">
+            <% } %>
+            <!--post-->
+            <div class="col-9 pl-0">
+                <div class="d-flex justify-content-start align-items-center">
+                    <img src="<%= postsList[i].image_url %>" alt="<%= postsList[i].title %>" class="thumb m-2">
+                    <div class="ml-3 my-2 align-self-start">
+                        <h5 class="my-1"><%= postsList[i].title %></h5>
+                        <p class="mb-2"><%= postsList[i].body %></p>
+                        <div class="small text-muted mt-1 italic">
+                            <i class="far fa-clock mr-1"></i><%= postsList[i].niceDate %>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!--post:end-->
 
-        <div class="col-3 align-self-center">
-            <% if(!postsList[i].no_author) { %>
-            <div class="card w-100 author center my-3">
-                <div class="border-left">
-                    <img src="<%= postsList[i].avatar_url %>" class="thumb rounded-img my-2" alt="<%= postsList[i].name %>">
-                    <ul class="list-group list-group-flush center">
-                        <li class="list-group-item text-danger py-2 strong"><%= postsList[i].name %></li>
-                        <li class="list-group-item py-1"><%= postsList[i].role %></li>
-                        <li class="list-group-item py-1"><i class="fas fa-map-marker-alt mr-1"></i><%= postsList[i].place %></li>
-                    </ul>
+            <!--author-->
+            <div class="col-3 align-self-center">
+                <% if(!postsList[i].no_author) { %>
+                <div class="card w-100 author center my-3">
+                    <div class="border-left">
+                        <img src="<%= postsList[i].avatar_url %>" class="thumb rounded-img my-2"
+                            alt="<%= postsList[i].name %>">
+                        <ul class="list-group list-group-flush center">
+                            <li class="list-group-item text-danger py-2 strong"><%= postsList[i].name %></li>
+                            <li class="list-group-item py-1"><%= postsList[i].role %></li>
+                            <li class="list-group-item py-1">
+                                <i class="fas fa-map-marker-alt mr-1"></i><%= postsList[i].place %>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
+                <% } else {%>
+                <div>
+                    no author
+                </div>
+                <% }%>
             </div>
-            <% } else {%>
-            <div>
-                no author
-            </div>
-            <% }%>
+            <!--author:end-->
         </div>
-    </div>
-    <% } %>
+        <% } %>
+    </div><!--row:end-->
+<% } %>
 </div>

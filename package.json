@@ -1,18 +1,29 @@
 {
   "name": "simple-node-posts",
   "version": "1.0.0",
-  "description": "display posts data woth ejs",
+  "description": "display posts data with ejs",
   "main": "index.js",
+  "engines": {
+    "node": ">=10.16.0",
+    "npm": ">=6.7.0"
+  },
   "scripts": {
-    "start": "node ./index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node ./index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:install": "npm i babel-eslint eslint eslint-plugin-node eslint-plugin-standard",
+    "lint": "./node_modules/.bin/eslint --ext .js libs",
+    "lint:fix": "./node_modules/.bin/eslint --fix --ext .js libs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.5",
+    "eslint": "^7.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-standard": "^4.0.1",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",

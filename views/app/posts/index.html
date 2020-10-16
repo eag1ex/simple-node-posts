@@ -10,25 +10,13 @@
     <div class="container px-0 mt-5">
         <h2><%= pageTitle %></h2>
         <h4><%= postName %></h4>
-        <p class="lead mb-0 mt-4">Posts</p>
+        <p class="lead mb-0 mt-5">Posts</p>
         <hr class="my-2">
     </div>
 
     <%- include("./partials/posts") %>
-
-    <div class="container my-4">
-        <div class="d-flex justify-content-center">
-            <nav>
-                <ul class="pagination ">
-                    <li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
-                    <li class="page-item active" ><a class="page-link text-white active bg-danger" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <%- !error ? include("./partials/pagination"):'' %>
+    
 
 </body>
 
