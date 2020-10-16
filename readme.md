@@ -9,14 +9,15 @@
 
   
 #### Install
-To instal run `npm i`
 
+- `npm i`
 - Set your minimum nodejs and npm to versions specified in `package.json`
 - To run code/lint: `npm run lint:install` then `npm run lint`
 
  
 #### Start
-- `npm run server`, and navigate to `http://localhost:5000/posts` _(or which ever :port was used)_
+- `npm run server`
+- Navigate to `http://localhost:5000/posts` _(or which ever :port was used)_
 
 
 #### About
