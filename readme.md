@@ -16,7 +16,7 @@ To instal run `npm i`
 
  
 #### Start
-Run `npm run server`, and navigate to `http://localhost:5000/posts`  _(or which ever :port was used)_
+- `npm run server`, and navigate to `http://localhost:5000/posts` _(or which ever :port was used)_
 
 
 #### About
